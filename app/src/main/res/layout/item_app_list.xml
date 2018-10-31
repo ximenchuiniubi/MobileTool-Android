@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="app"
+            type="com.kiwi.mobiletool.model.AppEntity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/medium"
+        android:paddingTop="@dimen/small"
+        android:paddingRight="@dimen/medium"
+        android:paddingBottom="@dimen/small">
+
+        <ImageView
+            android:id="@+id/id_app_list_item_app_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            bind:imgSrc="@{app.icon}" />
+
+        <TextView
+            android:id="@+id/id_app_list_item_version_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/id_app_list_item_app_icon"
+            android:layout_alignParentRight="true"
+            android:text='@{"version name: "+app.versionName}'
+            android:textColor="@color/deep_grey"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/id_app_list_item_version_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/id_app_list_item_app_icon"
+            android:layout_alignParentRight="true"
+            android:text='@{"version code: "+app.versionCode}'
+            android:textColor="@color/deep_grey"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/id_app_list_item_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/id_app_list_item_app_icon"
+            android:layout_marginLeft="@dimen/small"
+            android:layout_marginRight="@dimen/small"
+            android:layout_toLeftOf="@id/id_app_list_item_version_name"
+            android:layout_toRightOf="@id/id_app_list_item_app_icon"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{app.appName}"
+            android:textColor="@color/deep_black"
+            android:textSize="@dimen/font_size_medium" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/id_app_list_item_app_name"
+            android:layout_alignBottom="@id/id_app_list_item_app_icon"
+            android:layout_marginRight="@dimen/small"
+            android:layout_toLeftOf="@id/id_app_list_item_version_code"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{app.packageName}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/font_size_small" />
+    </RelativeLayout>
+</layout>
