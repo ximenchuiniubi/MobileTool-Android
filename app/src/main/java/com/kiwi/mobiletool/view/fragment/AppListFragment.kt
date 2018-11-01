@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import com.kiwi.mobiletool.R
 import com.kiwi.mobiletool.databinding.FragmentAppListBinding
 import com.kiwi.mobiletool.model.AppEntity
-import com.kiwi.mobiletool.util.e
+import com.kiwi.utilslibrary.utils.e
 
 /**
  * @author: Kiwi

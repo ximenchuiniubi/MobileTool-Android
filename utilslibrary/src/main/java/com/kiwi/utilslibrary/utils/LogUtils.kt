@@ -1,7 +1,7 @@
-package com.kiwi.mobiletool.util
+package com.kiwi.utilslibrary.utils
 
 import android.util.Log
-import com.kiwi.mobiletool.BuildConfig
+import com.kiwi.utilslibrary.BuildConfig
 
 /**
  * @author: Kiwi
