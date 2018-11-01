@@ -2,9 +2,7 @@ package com.kiwi.mobiletool.view.fragment
 
 import android.app.Fragment
 import android.databinding.DataBindingUtil
-import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.widget.DividerItemDecoration
 import android.view.LayoutInflater
 import android.view.View
@@ -42,27 +40,22 @@ class AppListFragment : Fragment() {
 
     private fun init() {
         mBinding.data = mData
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mBinding.idAppList.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
-        }
+        mBinding.idAppList.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     private fun getAllApplications() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val packages = context.packageManager.getInstalledPackages(0)
-            e(TAG, "packages count " + packages.size + "......")
-            for (packageInfo in packages) mData.add(
-                AppEntity(
-                    packageInfo.applicationInfo.loadLabel(context.packageManager).toString(),
-                    packageInfo.versionName,
-                    packageInfo.versionCode,
-                    packageInfo.packageName,
-                    packageInfo.applicationInfo.loadIcon(context.packageManager)
-                )
+        val packages = context.packageManager.getInstalledPackages(0)
+        e(TAG, "packages count " + packages.size + "......")
+        for (packageInfo in packages) mData.add(
+            AppEntity(
+                packageInfo.applicationInfo.loadLabel(context.packageManager).toString(),
+                packageInfo.versionName,
+                packageInfo.versionCode,
+                packageInfo.packageName,
+                packageInfo.applicationInfo.loadIcon(context.packageManager)
             )
-            mHasGotData = true
-        } else {
-            Snackbar.make(mBinding.root, "仅支持API " + Build.VERSION_CODES.M + "以上版本", 3000).show()
-        }
+        )
+        mHasGotData = true
+
     }
 }

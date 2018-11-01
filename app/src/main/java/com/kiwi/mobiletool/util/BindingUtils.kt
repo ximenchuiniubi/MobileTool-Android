@@ -5,8 +5,11 @@ import android.graphics.drawable.Drawable
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.ImageView
+import android.widget.ListView
 import com.kiwi.mobiletool.model.AppEntity
+import com.kiwi.mobiletool.model.MenuEntity
 import com.kiwi.mobiletool.view.adapter.AppListAdapter
+import com.kiwi.mobiletool.view.adapter.LeftDrawerMenuAdapter
 
 /**
  * @author: Kiwi
@@ -24,4 +27,15 @@ fun setAppListData(recyclerView: RecyclerView, data: List<AppEntity>) {
 @BindingAdapter("bind:imgSrc")
 fun setAppListItemIcon(icon: ImageView, drawable: Drawable) {
     icon.setImageDrawable(drawable)
+}
+
+@BindingAdapter("bind:data")
+fun setMenuData(listView: ListView, data: MutableList<MenuEntity>) {
+    val leftDrawerMenuAdapter = LeftDrawerMenuAdapter(data)
+    listView.adapter = leftDrawerMenuAdapter
+}
+
+@BindingAdapter("android:src")
+fun setImageSrc(imageView: ImageView, resId: Int) {
+    imageView.setImageResource(resId)
 }
