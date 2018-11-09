@@ -18,11 +18,10 @@ import com.kiwi.utilslibrary.utils.e
  * @describe:
  * @email: ximenchuiniubi@gmail.com
  */
-class AppListFragment : Fragment() {
-    companion object {
-        const val TAG: String = "AppListFragment"
-    }
 
+private const val TAG = "AppListFragment"
+
+class AppListFragment : Fragment() {
     private lateinit var mBinding: FragmentAppListBinding
     private val mData: ArrayList<AppEntity> = ArrayList()
     private var mHasGotData: Boolean = false

@@ -29,16 +29,12 @@ class AppListAdapter(private val appList: List<AppEntity>) : RecyclerView.Adapte
         holder.bind(appList[position])
     }
 
-    class ViewHolder : RecyclerView.ViewHolder {
-        private var mBinding: ItemAppListBinding
-
-        constructor(itemView: View) : super(itemView) {
-            mBinding = DataBindingUtil.bind(itemView)!!
-        }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private var mBinding: ItemAppListBinding = DataBindingUtil.bind(itemView)!!
 
         fun bind(@NonNull appEntity: AppEntity) {
-            mBinding!!.app = appEntity
-            mBinding!!.executePendingBindings()
+            mBinding.app = appEntity
+            mBinding.executePendingBindings()
         }
     }
 }

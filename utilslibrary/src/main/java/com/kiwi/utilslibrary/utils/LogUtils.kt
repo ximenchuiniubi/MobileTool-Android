@@ -1,3 +1,4 @@
+@file:JvmName("LogUtils")
 package com.kiwi.utilslibrary.utils
 
 import android.util.Log
